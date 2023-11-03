@@ -11,6 +11,25 @@ public class Message {
     private Integer postId;
     private String chatGroup;
 
+    public Message() {
+    }
+
+    public Message(Integer id,
+                   Integer senderId,
+                   String message,
+                   Integer receiverId,
+                   Date sendTime,
+                   Integer postId,
+                   String chatGroup) {
+        this.id = id;
+        this.senderId = senderId;
+        this.message = message;
+        this.receiverId = receiverId;
+        this.sendTime = sendTime;
+        this.postId = postId;
+        this.chatGroup = chatGroup;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
