@@ -50,3 +50,4 @@
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:41:15 +0800] "POST /AndroidServe/messages/allMsgs?chatGroup=%7B%22from%22:%223%E7%94%A8%E6%88%B7%22,%22message%22:%22...%22,%22postId%22:25,%22to%22:%226%E7%94%A8%E6%88%B7%22%7D HTTP/1.1" 200 12 http-bio-8080-exec-8 3
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:42:16 +0800] "GET /AndroidServe/posts/limitNumPosts?limit=5&offset=10 HTTP/1.1" 200 835 http-bio-8080-exec-10 4
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:44:52 +0800] "GET /AndroidServe/posts/send?poster=3&label=%E6%96%87%E5%AD%A6&peopleNum=1&body=2023%E5%B9%B411%E6%9C%883%E6%97%A515:44:49 HTTP/1.1" 200 4 http-bio-8080-exec-3 9
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:45:50 +0800] "GET /AndroidServe/posts/send?poster=3&label=%E6%96%87%E5%AD%A6&peopleNum=1&body=2023%E5%B9%B411%E6%9C%883%E6%97%A515:44:49 HTTP/1.1" 200 12 http-bio-8080-exec-2 399
