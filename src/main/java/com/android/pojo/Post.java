@@ -23,6 +23,18 @@ public class Post {
                 '}';
     }
 
+    public Post() {
+    }
+
+    public Post(Integer id, Integer poster, String label, Integer peopleNum, String body, Date time) {
+        this.id = id;
+        this.poster = poster;
+        this.label = label;
+        this.peopleNum = peopleNum;
+        this.body = body;
+        this.time = time;
+    }
+
     public Date getTime() {
         return time;
     }

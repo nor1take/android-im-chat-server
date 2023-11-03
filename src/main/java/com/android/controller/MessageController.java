@@ -2,6 +2,7 @@ package com.android.controller;
 
 import com.android.pojo.Message;
 import com.android.service.MessageService;
+import com.android.util.StringFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class MessageController {
 
     @RequestMapping("/allMsgs")
     public List<Message> getAllMessages(String chatGroup) {
-        System.out.println(chatGroup);
+        chatGroup = StringFormat.trans(chatGroup);
         List<Message> messageList = messageService.selectAllMessage(chatGroup);
         System.out.println(new Date() + ">>> " + messageList);
         return messageList;
@@ -32,6 +33,8 @@ public class MessageController {
 
     @RequestMapping("/sendMsg")
     public String sendMessage(String senderId, String message, String receiverId, String postId, String chatGroup) {
+        message = StringFormat.trans(message);
+        chatGroup = StringFormat.trans(chatGroup);
         Message message1 = new Message(
                 null,
                 Integer.valueOf(senderId),

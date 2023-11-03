@@ -41,3 +41,12 @@
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:14:49:32 +0800] "GET /AndroidServe/messages/allMsgs?chatGroup=%7B%22from%22:%223%E7%94%A8%E6%88%B7%22,%22message%22:%22...%22,%22postId%22:25,%22to%22:%226%E7%94%A8%E6%88%B7%22%7D HTTP/1.1" 200 12 http-bio-8080-exec-2 302
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:00:06 +0800] "POST /AndroidServe/messages/allMsgs HTTP/1.1" 200 18649 http-bio-8080-exec-2 574
 0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:03:57 +0800] "POST /AndroidServe/messages/sendMsg HTTP/1.1" 200 4 http-bio-8080-exec-5 17
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:05:08 +0800] "POST /AndroidServe/messages/sendMsg HTTP/1.1" 200 12 http-bio-8080-exec-2 388
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:37:07 +0800] "GET /AndroidServe/posts/aPost?id=1 HTTP/1.1" 500 9245 http-bio-8080-exec-2 73
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:38:50 +0800] "GET /AndroidServe/posts/aPost?id=1 HTTP/1.1" 200 372 http-bio-8080-exec-2 438
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:39:29 +0800] "GET /AndroidServe/posts/allPosts HTTP/1.1" 200 99 http-bio-8080-exec-3 11
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:40:32 +0800] "GET /AndroidServe/posts/labelTop3?label=%E6%96%87%E5%AD%A6 HTTP/1.1" 200 803 http-bio-8080-exec-6 19
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:40:52 +0800] "GET /AndroidServe/messages/allMsgs?chatGroup=%7B%22from%22:%223%E7%94%A8%E6%88%B7%22,%22message%22:%22...%22,%22postId%22:25,%22to%22:%226%E7%94%A8%E6%88%B7%22%7D HTTP/1.1" 200 18852 http-bio-8080-exec-7 87
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:41:15 +0800] "POST /AndroidServe/messages/allMsgs?chatGroup=%7B%22from%22:%223%E7%94%A8%E6%88%B7%22,%22message%22:%22...%22,%22postId%22:25,%22to%22:%226%E7%94%A8%E6%88%B7%22%7D HTTP/1.1" 200 12 http-bio-8080-exec-8 3
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:42:16 +0800] "GET /AndroidServe/posts/limitNumPosts?limit=5&offset=10 HTTP/1.1" 200 835 http-bio-8080-exec-10 4
+0:0:0:0:0:0:0:1 - - [03/Nov/2023:15:44:52 +0800] "GET /AndroidServe/posts/send?poster=3&label=%E6%96%87%E5%AD%A6&peopleNum=1&body=2023%E5%B9%B411%E6%9C%883%E6%97%A515:44:49 HTTP/1.1" 200 4 http-bio-8080-exec-3 9
