@@ -1,5 +1,6 @@
 com\TCPServer\Server.class
 com\android\pojo\User.class
+com\android\config\SpringConfig.class
 com\android\mapper\PostMapper.class
 com\android\pojo\Message.class
 com\android\mapper\FriendMapper.class
@@ -10,8 +11,10 @@ com\android\util\SqlSessionFactoryUtil.class
 com\android\servlet\Friend_add_Servlet.class
 com\TCPServer\Server$ServerThread.class
 com\android\util\StringFormat.class
+com\android\config\SpringMvcConfig.class
 com\android\mapper\MessageMapper.class
 com\android\pojo\Post.class
+com\android\controller\UserController.class
 com\android\servlet\Friend_a_Servlet.class
 com\android\mapper\UserMapper.class
 com\android\servlet\Post_lable_top3_Servlet.class
