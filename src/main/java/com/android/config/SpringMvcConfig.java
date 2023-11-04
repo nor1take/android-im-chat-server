@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan("com.android.controller")
+@ComponentScan({"com.android.controller", "com.android.aop"})
 @EnableAspectJAutoProxy
 @EnableWebMvc
 public class SpringMvcConfig {

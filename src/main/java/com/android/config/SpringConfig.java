@@ -4,7 +4,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan({"com.android.service", "com.android.aop"})
+@ComponentScan({"com.android.service"})
 @PropertySource("classpath:jdbc.properties")
 @EnableTransactionManagement
 @Import({JdbcConfig.class, MybatisConfig.class})

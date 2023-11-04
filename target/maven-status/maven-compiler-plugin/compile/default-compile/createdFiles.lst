@@ -6,8 +6,8 @@ com\android\service\impl\FriendServiceImpl.class
 com\TCPServer\Server$ServerThread.class
 com\android\service\MessageService.class
 com\android\util\StringFormat.class
+com\android\aop\ExceptionAdvice.class
 com\android\config\SpringMvcConfig.class
-com\android\aop\PrintLogAdvice.class
 com\android\controller\PostController.class
 com\android\service\impl\MessageServiceImpl.class
 com\TCPServer\Server.class
@@ -25,4 +25,5 @@ com\android\service\FriendService.class
 com\android\pojo\Post.class
 com\android\controller\UserController.class
 com\android\controller\Result.class
+com\android\aop\MyAdvice.class
 com\android\mapper\UserMapper.class

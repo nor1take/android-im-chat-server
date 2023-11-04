@@ -63,3 +63,7 @@
 0:0:0:0:0:0:0:1 - - [04/Nov/2023:14:24:42 +0800] "GET /AndroidServe/friends/friendAdd?uid=4&friendId=7 HTTP/1.1" 200 48 http-bio-8080-exec-3 24
 0:0:0:0:0:0:0:1 - - [04/Nov/2023:14:24:46 +0800] "GET /AndroidServe/friends/friendAdd?uid=4&friendId=7 HTTP/1.1" 200 100 http-bio-8080-exec-4 4
 0:0:0:0:0:0:0:1 - - [04/Nov/2023:14:25:54 +0800] "GET /AndroidServe/friends/friendAdd?uid=4&friendId=8 HTTP/1.1" 500 6794 http-bio-8080-exec-2 337
+0:0:0:0:0:0:0:1 - - [04/Nov/2023:15:27:57 +0800] "GET /AndroidServe/users/login?username=dd&password=124 HTTP/1.1" 200 58 http-bio-8080-exec-2 457
+0:0:0:0:0:0:0:1 - - [04/Nov/2023:15:28:05 +0800] "GET /AndroidServe/users/login?username=dd&password=124 HTTP/1.1" 200 58 http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [04/Nov/2023:15:28:18 +0800] "GET /AndroidServe/friends/aFriend?uid=a&friendId=8 HTTP/1.1" 200 195186 http-bio-8080-exec-4 1386
+0:0:0:0:0:0:0:1 - - [04/Nov/2023:15:29:59 +0800] "GET /AndroidServe/friends/aFriend?uid=a&friendId=8 HTTP/1.1" 200 11538 http-bio-8080-exec-2 151
