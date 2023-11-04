@@ -19,7 +19,6 @@ public class MessageController {
     @RequestMapping("/allMyChatGroups")
     public List<String> getAllMyChatGroups(int uid) {
         List<String> allMyChatGroups = messageService.selectAllChatGroup(uid);
-        System.out.println(new Date() + ">>> " + allMyChatGroups);
         return allMyChatGroups;
     }
 
@@ -27,7 +26,6 @@ public class MessageController {
     public List<Message> getAllMessages(String chatGroup) {
         chatGroup = StringFormat.trans(chatGroup);
         List<Message> messageList = messageService.selectAllMessage(chatGroup);
-        System.out.println(new Date() + ">>> " + messageList);
         return messageList;
     }
 
@@ -44,7 +42,6 @@ public class MessageController {
                 Integer.valueOf(postId),
                 chatGroup
         );
-        System.out.println(new Date() + ">>> " + message1.toString());
         messageService.add(message1);
         return "发送成功";
     }

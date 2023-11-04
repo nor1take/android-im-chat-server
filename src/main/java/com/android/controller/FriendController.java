@@ -19,10 +19,8 @@ public class FriendController {
     public String isFriend(int uid, int friendId) {
         Friend friend = friendService.selectByFriendId(uid, friendId);
         if (friend == null) {
-            System.out.println(new Date() + ">>> " + "用户 " + friendId + " 不是" + "用户 " + uid + " 的好友");
             return "n";
         } else {
-            System.out.println(new Date() + ">>> " + "用户 " + friendId + " 是" + "用户 " + uid + " 的好友");
             return "y";
         }
     }
