@@ -24,9 +24,9 @@ public class MessageController {
         );
     }
 
-    @GetMapping("/allMsgs")
+    @RequestMapping("/allMsgs")
     public Result getAllMessages(String chatGroup) {
-        chatGroup = StringFormat.trans(chatGroup);
+//        chatGroup = StringFormat.trans(chatGroup);
         List<Message> messageList = messageService.selectAllMessage(chatGroup);
         return new Result(
                 messageList != null ? Code.GET_OK : Code.GET_ERR,
@@ -34,10 +34,10 @@ public class MessageController {
         );
     }
 
-    @GetMapping("/sendMsg")
+    @RequestMapping("/sendMsg")
     public Result sendMessage(String senderId, String message, String receiverId, String postId, String chatGroup) {
-        message = StringFormat.trans(message);
-        chatGroup = StringFormat.trans(chatGroup);
+//        message = StringFormat.trans(message);
+//        chatGroup = StringFormat.trans(chatGroup);
         Message message1 = new Message(
                 null,
                 Integer.valueOf(senderId),

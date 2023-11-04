@@ -4,8 +4,6 @@ import com.android.pojo.Post;
 import com.android.service.PostService;
 import com.android.util.StringFormat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,9 +40,9 @@ public class PostController {
         );
     }
 
-    @GetMapping("/labelTop3")
+    @RequestMapping("/labelTop3")
     public Result getLableTop3(String label) {
-        label = StringFormat.trans(label);
+//        label = StringFormat.trans(label);
         List<Post> postList = postService.selectByLable(label);
         return new Result(
                 postList != null ? Code.GET_OK : Code.GET_ERR,
@@ -61,10 +59,10 @@ public class PostController {
         );
     }
 
-    @GetMapping("/send")
+    @RequestMapping("/send")
     public Result sendPost(String poster, String label, String peopleNum, String body) {
-        label = StringFormat.trans(label);
-        body = StringFormat.trans(body);
+//        label = StringFormat.trans(label);
+//        body = StringFormat.trans(body);
         Post post = new Post(
                 null,
                 Integer.parseInt(poster),
@@ -76,7 +74,8 @@ public class PostController {
         boolean flag = postService.add(post);
         return new Result(
                 flag ? Code.SAVE_OK : Code.SAVE_ERR,
-                flag
+                flag,
+                flag ? "发布成功" : "发布失败"
         );
     }
 }
