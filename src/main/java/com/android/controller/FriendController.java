@@ -16,31 +16,33 @@ public class FriendController {
     private FriendService friendService;
 
     @RequestMapping("/aFriend")
-    public String isFriend(int uid, int friendId) {
+    public Result isFriend(int uid, int friendId) {
         Friend friend = friendService.selectByFriendId(uid, friendId);
-        if (friend == null) {
-            return "n";
-        } else {
-            return "y";
-        }
+        Integer code = friend != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = friend != null ? "对方是你的好友" : "对方不是你的好友";
+        return new Result(code, friend, msg);
     }
 
     @RequestMapping("/friendAdd")
-    public String addFrind(int uid, int friendId) {
+    public Result addFrind(int uid, int friendId) {
         Friend friend = friendService.selectByFriendId(uid, friendId);
         if (friend == null) {
             Friend friend1 = new Friend(uid, friendId, new Date());
             Friend friend2 = new Friend(friendId, uid, new Date());
-            friendService.add(friend1);
-            friendService.add(friend2);
-            return "success";
+            boolean flag1 = friendService.add(friend1);
+            boolean flag2 = friendService.add(friend2);
+            return new Result(flag1 && flag2 ? Code.SAVE_OK : Code.SAVE_ERR, flag1 && flag2);
         } else {
-            return "exist";
+            return new Result(Code.GET_OK, friend, "exist");
         }
     }
 
     @RequestMapping("/friendAll")
-    public List<Friend> getAllFriends(int uid) {
-        return friendService.selectByUid(uid);
+    public Result getAllFriends(int uid) {
+        List<Friend> friendList = friendService.selectByUid(uid);
+        return new Result(
+                friendList != null ? Code.GET_OK : Code.GET_ERR,
+                friendList
+        );
     }
 }

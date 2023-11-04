@@ -12,6 +12,7 @@ com\android\controller\PostController.class
 com\android\service\impl\MessageServiceImpl.class
 com\TCPServer\Server.class
 com\android\pojo\User.class
+com\android\controller\Code.class
 com\android\service\impl\PostServiceImpl.class
 com\android\service\PostService.class
 com\android\controller\MessageController.class
@@ -23,4 +24,5 @@ com\android\mapper\MessageMapper.class
 com\android\service\FriendService.class
 com\android\pojo\Post.class
 com\android\controller\UserController.class
+com\android\controller\Result.class
 com\android\mapper\UserMapper.class

@@ -1,6 +1,5 @@
 package com.android.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.android.pojo.User;
 import com.android.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,45 +11,33 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    private JSONObject jsonObject = new JSONObject();
 
     @RequestMapping("/login")
-    public String login(String username, String password) {
+    public Result login(String username, String password) {
         User user = userService.selectByName(username);
 
         if (user == null) {
-            //fail
-            jsonObject.put("state", "该用户名未注册");
-            return jsonObject.toString();
+            return new Result(Code.GET_ERR, null, "该用户名未注册");
         } else {
-            //success
-            User login = userService.login(username, password);
-            if (login == null) {
-                jsonObject.put("state", "密码错误");
-                return jsonObject.toString();
-            } else {
-                int id = user.getId();
-                jsonObject.put("state", "登录成功");
-                jsonObject.put("id", id);
-                return jsonObject.toString();
-            }
+            User user1 = userService.login(username, password);
+            return new Result(
+                    user1 != null ? Code.GET_OK : Code.GET_ERR,
+                    user1,
+                    user1 != null ? "登录成功" : "密码错误"
+            );
         }
     }
 
     @RequestMapping("/register")
-    public String register(String username, String password) {
+    public Result register(String username, String password) {
         User user = userService.selectByName(username);
 
         if (user != null) {
-            jsonObject.put("state", "该用户名已注册");
-            return jsonObject.toString();
+            return new Result(Code.GET_OK, null, "该用户名已注册");
         } else {
-            User user1 = new User();
-            user1.setUserName(username);
-            user1.setPassWord(password);
-            userService.add(user1);
-            jsonObject.put("state", "注册成功");
-            return jsonObject.toString();
+            User user1 = new User(username, password);
+            boolean flag = userService.add(user1);
+            return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
         }
     }
 }

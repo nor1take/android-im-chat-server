@@ -4,6 +4,8 @@ import com.android.pojo.Post;
 import com.android.service.PostService;
 import com.android.util.StringFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,35 +19,50 @@ public class PostController {
     private PostService postService;
 
     @RequestMapping("/aPost")
-    public Post getAPost(String id) {
-        return postService.selectById(Integer.parseInt(id));
+    public Result getAPost(String id) {
+        Post post = postService.selectById(Integer.parseInt(id));
+        return new Result(
+                post != null ? Code.GET_OK : Code.GET_ERR,
+                post
+        );
     }
 
     @RequestMapping("/allPosts")
-    public String getAllPostIds() {
-        List<Post> posts = postService.selectAll();
+    public Result getAllPostIds() {
+        List<Post> postList = postService.selectAll();
         StringBuffer idList = new StringBuffer();
-        for (Post item : posts) {
-            int id = item.getId();
+        for (Post post : postList) {
+            int id = post.getId();
             idList.append(id);
             idList.append('#'); //1#3#
         }
-        return idList.toString();
+        return new Result(
+                postList != null ? Code.GET_OK : Code.GET_ERR,
+                idList.toString()
+        );
     }
 
-    @RequestMapping("/labelTop3")
-    public List<Post> getLableTop3(String label) {
+    @GetMapping("/labelTop3")
+    public Result getLableTop3(String label) {
         label = StringFormat.trans(label);
-        return postService.selectByLable(label);
+        List<Post> postList = postService.selectByLable(label);
+        return new Result(
+                postList != null ? Code.GET_OK : Code.GET_ERR,
+                postList
+        );
     }
 
     @RequestMapping("/limitNumPosts")
-    public List<Post> getLimitNumPosts(String limit, String offset) {
-        return postService.selectLimitNum(Integer.parseInt(limit), Integer.parseInt(offset));
+    public Result getLimitNumPosts(String limit, String offset) {
+        List<Post> postList = postService.selectLimitNum(Integer.parseInt(limit), Integer.parseInt(offset));
+        return new Result(
+                postList != null ? Code.GET_OK : Code.GET_ERR,
+                postList
+        );
     }
 
-    @RequestMapping("/send")
-    public String sendPost(String poster, String label, String peopleNum, String body) {
+    @GetMapping("/send")
+    public Result sendPost(String poster, String label, String peopleNum, String body) {
         label = StringFormat.trans(label);
         body = StringFormat.trans(body);
         Post post = new Post(
@@ -56,7 +73,10 @@ public class PostController {
                 body,
                 new Date()
         );
-        postService.add(post);
-        return "发布成功";
+        boolean flag = postService.add(post);
+        return new Result(
+                flag ? Code.SAVE_OK : Code.SAVE_ERR,
+                flag
+        );
     }
 }
