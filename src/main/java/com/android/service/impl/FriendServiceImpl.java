@@ -20,6 +20,14 @@ public class FriendServiceImpl implements FriendService {
     }
 
     @Override
+    public boolean addBothSide(Friend friend1, Friend friend2) {
+        friendMapper.add(friend1);
+        //模拟错误：int a = 1 / 0;
+        friendMapper.add(friend2);
+        return true;
+    }
+
+    @Override
     public Friend selectByFriendId(int uid, int friendId) {
         return friendMapper.selectByFriendId(uid, friendId);
     }

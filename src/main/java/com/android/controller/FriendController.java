@@ -3,6 +3,7 @@ package com.android.controller;
 import com.android.pojo.Friend;
 import com.android.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,9 +30,8 @@ public class FriendController {
         if (friend == null) {
             Friend friend1 = new Friend(uid, friendId, new Date());
             Friend friend2 = new Friend(friendId, uid, new Date());
-            boolean flag1 = friendService.add(friend1);
-            boolean flag2 = friendService.add(friend2);
-            return new Result(flag1 && flag2 ? Code.SAVE_OK : Code.SAVE_ERR, flag1 && flag2);
+            boolean flag = friendService.addBothSide(friend1, friend2);
+            return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
         } else {
             return new Result(Code.GET_OK, friend, "exist");
         }

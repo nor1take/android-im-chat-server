@@ -1,13 +1,15 @@
 package com.android.service;
 
 import com.android.pojo.Friend;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 public interface FriendService {
     boolean add(Friend friend);
+
+    @Transactional
+    boolean addBothSide(Friend friend1, Friend friend2);
 
     Friend selectByFriendId(int uid, int friendId);
 
