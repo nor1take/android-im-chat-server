@@ -1,4 +1,4 @@
-package com.android.aop;
+package com.android.controller.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
