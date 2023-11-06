@@ -2,7 +2,6 @@ package com.android.controller;
 
 import com.android.pojo.Post;
 import com.android.service.PostService;
-import com.android.util.StringFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
